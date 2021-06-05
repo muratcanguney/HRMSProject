@@ -20,7 +20,10 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(callSuper = false)
 @PrimaryKeyJoinColumn(name = "user_id", referencedColumnName = "id")
 public class Candidate extends User {
-
+	
+	@Column(name = "user_id", insertable = false, updatable = false)
+	private int userId;
+	
 	@Column(name = "first_name")
 	private String firstName;
 
