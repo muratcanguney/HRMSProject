@@ -4,6 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import com.cloudinary.Cloudinary;
+import com.cloudinary.utils.ObjectUtils;
+
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
@@ -22,4 +25,12 @@ public class HrmsApplication {
 		return new Docket(DocumentationType.SWAGGER_2).select()
 				.apis(RequestHandlerSelectors.basePackage("kodlamaio.hrms")).build();
 	}
+	
+    @Bean
+    public Cloudinary cloudinaryService(){
+        return new Cloudinary(ObjectUtils.asMap(
+                "cloud_name", "dvjxaboh2",
+                "api_key", "354283333842779",
+                "api_secret", "RGLMY8xWTILEKOHzTFFG3J4Xjo8"));
+    }
 }

@@ -19,19 +19,19 @@ import lombok.NoArgsConstructor;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "employer_phones")
-public class EmployerPhone {
+@Table(name = "candidate_skills")
+public class CandidateSkill {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private int id;
 
-	@NotBlank(message = "Telefon Numarası Boş Geçilemez..")
-	@Column(name = "phone_number")
-	private String phoneNumber;
-
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "employer_id")
-	private Employer employerP;
+	@JoinColumn(name = "cv_id")
+	private CandidateCV candidateCVS;
+
+	@NotBlank(message = "Beceri Adı Boş Geçilemez..")
+	@Column(name = "skill_name")
+	private String skillName;
 }

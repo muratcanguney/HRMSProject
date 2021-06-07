@@ -33,7 +33,7 @@ public class JobPostingManager implements JobPostingService {
 	@Override
 	public Result updateJobPostingStatus(int id, boolean isActive) {
 		JobPosting jobPosting = this.jobPostingDao.getById(id);
-		
+
 		jobPosting.setActive(isActive);
 		this.jobPostingDao.save(jobPosting);
 		return new SuccessResult(jobPosting.getPostTitle() + " Başlıklı İlanınızın Durumu Güncellenmiştir..");
