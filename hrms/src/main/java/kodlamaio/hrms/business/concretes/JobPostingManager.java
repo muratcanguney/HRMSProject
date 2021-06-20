@@ -58,4 +58,11 @@ public class JobPostingManager implements JobPostingService {
 				this.jobPostingDao.getJobPostingWithActiveTrueAndEmployerId(employerUserId),
 				"Şirkete Ait Aktif İlanlar Listelendi..");
 	}
+
+	@Override
+	public DataResult<List<JobPostingListDto>> getJobPostingWithAdminConfirmFalse() {
+
+		return new SuccessDataResult<List<JobPostingListDto>>(this.jobPostingDao.getJobPostingWithAdminConfirmFalse(),
+				"Yönetici Onayı Bekleyen İlanlar Listelendi..");
+	}
 }

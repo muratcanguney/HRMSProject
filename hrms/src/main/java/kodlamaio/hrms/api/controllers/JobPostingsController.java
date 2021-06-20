@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -28,7 +29,8 @@ import kodlamaio.hrms.entities.concretes.JobPosting;
 import kodlamaio.hrms.entities.dtos.JobPostingListDto;
 
 @RestController
-@RequestMapping(name = "api/jobPostings/")
+@CrossOrigin
+@RequestMapping("api/jobPostings/")
 public class JobPostingsController {
 
 	private JobPostingService jobPostingService;
@@ -63,6 +65,11 @@ public class JobPostingsController {
 	public DataResult<List<JobPostingListDto>> getJobPostingWithActiveTrueAndEmployerId(
 			@RequestParam int employerUserId) {
 		return this.jobPostingService.getJobPostingWithActiveTrueAndEmployerId(employerUserId);
+	}
+	
+	@GetMapping("getJobPostingWithAdminConfirmFalse")
+	public DataResult<List<JobPostingListDto>> getJobPostingWithAdminConfirmFalse() {
+		return this.jobPostingService.getJobPostingWithAdminConfirmFalse();
 	}
 
 	@ExceptionHandler(MethodArgumentNotValidException.class)

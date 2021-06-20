@@ -27,14 +27,14 @@ import kodlamaio.hrms.entities.concretes.EmployerPhone;
 @RestController
 @RequestMapping("api/employerPhones/")
 public class EmployerPhonesController {
-	
+
 	private EmployerPhoneService employerPhoneService;
 
 	@Autowired
 	public EmployerPhonesController(EmployerPhoneService employerPhoneService) {
 		this.employerPhoneService = employerPhoneService;
 	}
-	
+
 	@PostMapping("addEmployerPhone")
 	public ResponseEntity<?> add(@Valid @RequestBody EmployerPhone employerPhone) {
 		return ResponseEntity.ok(this.employerPhoneService.add(employerPhone));
@@ -44,7 +44,7 @@ public class EmployerPhonesController {
 	public DataResult<List<EmployerPhone>> findByEmployerP_UserId(int employerId) {
 		return this.employerPhoneService.findByEmployerP_UserId(employerId);
 	}
-	
+
 	@ExceptionHandler(MethodArgumentNotValidException.class)
 	@ResponseStatus(HttpStatus.BAD_REQUEST)
 	public ErrorDataResult<Object> handleValidationException(MethodArgumentNotValidException exceptions) {

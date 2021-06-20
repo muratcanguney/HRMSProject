@@ -59,6 +59,14 @@ public class JobPosting {
 	@Column(name = "open_position_count")
 	private int openPositionCount;
 
+	@ManyToOne
+	@JoinColumn(name = "job_type_id")
+	private JobType jobType;
+	
+	@ManyToOne
+	@JoinColumn(name = "job_time_id")
+	private JobTime jobTime;
+
 	@Column(name = "release_date")
 	private Date releaseDate;
 
@@ -67,4 +75,7 @@ public class JobPosting {
 
 	@Column(name = "active")
 	private boolean active;
+	
+	@Column(name = "confirmed")
+	private boolean confirmed;
 }

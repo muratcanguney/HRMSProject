@@ -18,4 +18,6 @@ public interface JobPostingService {
 	DataResult<List<JobPostingListDto>> getJobPostingWithActiveTrueAndReleaseDate(String releaseDate);
 	
 	DataResult<List<JobPostingListDto>> getJobPostingWithActiveTrueAndEmployerId(int employerUserId);
+	
+	DataResult<List<JobPostingListDto>> getJobPostingWithAdminConfirmFalse();
 }

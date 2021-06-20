@@ -25,12 +25,10 @@ public class HrmsApplication {
 		return new Docket(DocumentationType.SWAGGER_2).select()
 				.apis(RequestHandlerSelectors.basePackage("kodlamaio.hrms")).build();
 	}
-	
-    @Bean
-    public Cloudinary cloudinaryService(){
-        return new Cloudinary(ObjectUtils.asMap(
-                "cloud_name", "dvjxaboh2",
-                "api_key", "354283333842779",
-                "api_secret", "RGLMY8xWTILEKOHzTFFG3J4Xjo8"));
-    }
+
+	@Bean
+	public Cloudinary cloudinaryService() {
+		return new Cloudinary(ObjectUtils.asMap("cloud_name", "dvjxaboh2", "api_key", "354283333842779", "api_secret",
+				"RGLMY8xWTILEKOHzTFFG3J4Xjo8"));
+	}
 }

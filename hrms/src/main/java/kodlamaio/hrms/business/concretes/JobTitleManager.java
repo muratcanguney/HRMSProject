@@ -18,7 +18,7 @@ import kodlamaio.hrms.entities.concretes.JobTitle;
 @Service
 public class JobTitleManager implements JobTitleService {
 
-	JobTitleDao jobTitleDao;
+	private JobTitleDao jobTitleDao;
 
 	@Autowired
 	public JobTitleManager(JobTitleDao jobTitleDao) {
